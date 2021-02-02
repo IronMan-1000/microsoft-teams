@@ -1,6 +1,7 @@
 import React from "react";
 import MyMessage from "./MyMessage";
 import TheirMessage from "./TheirMessage";
+import MessageForm from "./MessageForm";
 
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
@@ -17,7 +18,14 @@ const ChatFeed = (props) => {
       return (
         <div key={`msg_${index}`} style={{ width: "100%" }}>
           <div className="message-block">
-            {isMyMessage ? <MyMessage /> : <TheirMessage />}
+            {isMyMessage ? (
+              <MyMessage message={message} />
+            ) : (
+              <TheirMessage
+                message={message}
+                lastMessage={message[lastMessageKey]}
+              />
+            )}
           </div>
           <div
             className="read-receipts"
