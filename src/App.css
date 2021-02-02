@@ -4,3 +4,7 @@
     Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   letter-spacing: 0.5px;
 }
+.message-block {
+  width: 100%;
+  display: inline-block;
+}
