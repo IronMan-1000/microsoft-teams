@@ -8,7 +8,7 @@ const ChatFeed = (props) => {
 
   const chat = chats && chats[activeChat];
 
-  const renderReadReceipts = (message, isMyMessage) => {
+  const renderReadReceipts = (message, isMyMessage) =>
     chat.people.map(
       (person, index) =>
         person.last_read === message.id && (
@@ -23,7 +23,6 @@ const ChatFeed = (props) => {
           />
         )
     );
-  };
 
   const renderMessages = () => {
     const keys = Object.keys(messages);
@@ -41,7 +40,7 @@ const ChatFeed = (props) => {
             ) : (
               <TheirMessage
                 message={message}
-                lastMessage={message[lastMessageKey]}
+                lastMessage={messages[lastMessageKey]}
               />
             )}
           </div>
@@ -58,16 +57,15 @@ const ChatFeed = (props) => {
       );
     });
   };
-  // renderMessages();
 
-  if (!chat) return "Loading...";
+  if (!chat) return <div />;
 
   return (
     <div className="chat-feed">
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
         <div className="chat-subtitle">
-          {chat.people.map((person) => `${person.person.username}`)}
+          {chat.people.map((person) => ` ${person.person.username}`)}
         </div>
       </div>
       {renderMessages()}
