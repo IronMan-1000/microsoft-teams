@@ -5,7 +5,6 @@ import ChatFeed from "./components/ChatFeed";
 import LoginForm from "./components/LoginForm";
 
 const API_KEY = process.env.REACT_APP_CHAT_ENGINE;
-const API_PASS = process.env.REACT_APP_CHAT_ENGINE_PASSWORD;
 
 const App = () => {
   if (!localStorage.getItem("username")) return <LoginForm />;
@@ -14,8 +13,8 @@ const App = () => {
     <ChatEngine
       height="100vh"
       projectID={API_KEY}
-      userName="mauroavellaneda"
-      userSecret={API_PASS}
+      userName={localStorage.getItem("username")}
+      userSecret={localStorage.getItem("password")}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
     />
   );
