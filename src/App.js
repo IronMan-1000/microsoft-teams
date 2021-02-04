@@ -2,8 +2,6 @@ import React from "react";
 import { ChatEngine } from "react-chat-engine";
 import "./App.css";
 import ChatFeed from "./components/ChatFeed";
-import MessageForm from "./components/MessageForm";
-import MyMessage from "./components/MyMessage";
 
 const API_KEY = process.env.REACT_APP_CHAT_ENGINE;
 const API_PASS = process.env.REACT_APP_CHAT_ENGINE_PASSWORD;
